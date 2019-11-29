@@ -1,0 +1,53 @@
+/* Grid layout (Assignment 1) */
+.container {
+  margin: 1em;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 10em auto 15em;
+}
+.container > * { /* temporary, to highlight layout more clearly */
+  border: 2px solid blue;
+}
+
+header {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+.left-panel {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+}
+.main {
+  grid-column: 2;
+  grid-row: 2;
+}
+.right-panel {
+  grid-column: 3;
+  grid-row: 2;
+}
+footer {
+  grid-column: 2 / span 2;
+  grid-row: 3;
+}
+
+/* Simple responsive alternative for narrow screens */
+@media only screen and (max-width: 640px) {
+  .container {
+    display: block;
+  }
+  .container > * {
+    margin-bottom: 1em;
+  }
+}
+
+/* presentation */
+html {
+  box-sizing: border-box;
+}
+body {
+  color: #222;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
