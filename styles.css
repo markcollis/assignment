@@ -5,8 +5,8 @@
   grid-gap: 1em;
   grid-template-columns: 10em auto 15em;
 }
-.container > * { /* temporary, to highlight layout more clearly */
-  border: 2px solid blue;
+.container > * {
+  background-color: white;
 }
 
 header {
@@ -45,9 +45,59 @@ html {
   box-sizing: border-box;
 }
 body {
+  background-color: #d5e9af;
   color: #222;
   font-family: sans-serif;
   font-weight: 400;
   line-height: 1.2;
   margin: 0;
 }
+/* labels when Assignment 1 selected */
+h3 {
+  border-top: 1px solid #99ca3c;
+  border-bottom: 1px solid #99ca3c;
+  text-align: center;
+  color: #99ca3c;
+  margin: 0.5em auto;
+}
+/* styles for header */
+header h1 {
+  font-size: 160%;
+  text-align: center;
+}
+header h1 img {
+  margin-right: 1em;
+  vertical-align: text-top;
+  width: 6em;
+}
+/* styles for footer */
+footer {
+  font-size: 90%;
+  text-align: center;
+}
+footer a {
+  color: #99ca3c;
+}
+/* styles for left panel */
+.left-panel ul {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.left-panel button {
+  background: none !important;
+  border: none;
+  font-size: 110%;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #99ca3c;
+  margin: 0.2em auto;
+  outline-color: transparent;
+}
+.left-panel button.active {
+  color: #222;
+  text-decoration: none;
+}
+/* styles for main content */
+
+/* styles for right panel */
