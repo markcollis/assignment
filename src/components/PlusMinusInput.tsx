@@ -18,7 +18,7 @@ const PlusMinusInput: React.FC<InputProps> = ({
   };
   return (
     <div className="plus-minus-input">
-      <button type="button" onClick={handleMinusButtonClick}>-</button>
+      <button type="button" className="minus-button" onClick={handleMinusButtonClick}>-</button>
       <span>{value}</span>
       <button type="button" onClick={handlePlusButtonClick}>+</button>
     </div>

@@ -61,19 +61,16 @@ const RightPanel: React.FC<{ selectedAssignment: assignmentNumber }> = ({ select
     ),
     (
       <>
-        <p>Layout created as specified.</p>
-        <p>
-          {'Webpack-dev-server provided to view the assignments (start using '}
-          <code>npm run serve/yarn serve</code>
-          ).
-        </p>
+        <p>The layout has been created as specified.</p>
+        <p>Webpack-dev-server has been included to view the layout and assignments.</p>
       </>
     ),
     (
       <>
         <p>
-          Inputs created as specified. Each of the three is a separate component with the same
-          value, setValue function, and minimum and maximum acceptable values passed as props to it.
+          The inputs have been created as specified. Each of the three is a separate
+          component with the same value, setValue function, and minimum and maximum
+          acceptable values passed as props to it.
         </p>
       </>
     ),
@@ -87,7 +84,14 @@ const RightPanel: React.FC<{ selectedAssignment: assignmentNumber }> = ({ select
     ),
     (
       <>
-        <p>to do</p>
+        <p>
+          Drawing tool implemented. The line width can be specified within a range of 1 to 50
+          pixels and the canvas can be cleared.
+        </p>
+        <p>
+          Drawings can be saved to and retrieved from localStorage. They can also be deleted
+          from the stored set when no longer required.
+        </p>
       </>
     ),
   ];
