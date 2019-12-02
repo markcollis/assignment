@@ -40,7 +40,7 @@ const CakeFranchiseData: React.FC = () => {
   const [selectedTheme, setSelectedTheme] = React.useState(0);
 
   // expand as required while building appropriate views in DataViewer
-  const THEMES = ['Summary', 'Shop performance', 'Cake performance'];
+  const THEMES = ['Summary', 'Franchise performance', 'Cake performance'];
 
   // load data from ./data/, can be triggered by incrementing dataLoadCount
   React.useEffect(() => {

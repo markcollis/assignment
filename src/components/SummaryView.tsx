@@ -43,6 +43,7 @@ const SummaryView: React.FC<SummaryViewProps> = ({ franchiseSummary }) => {
   const red2 = '#cc6666';
   const red3 = '#dd9999';
 
+  // define data series to display
   const incomeDataSeries = franchiseSummary.map(franchise => ({
     x: franchise.franchiseName,
     y: franchise.totalIncome / (franchise.countDates * 1000),

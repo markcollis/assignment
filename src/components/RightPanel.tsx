@@ -77,9 +77,9 @@ const RightPanel: React.FC<{ selectedAssignment: assignmentNumber }> = ({ select
     (
       <>
         <p>
-          The sample data has been imported and a data set can be selected. The first
-          visualisation (an overall summary) has been created. Additional visualisations
-          are still to be done.
+          The sample data has been imported and a data set can be selected. Some initial
+          visualisations have been developed, though there is scope for much more work
+          in this area.
         </p>
       </>
     ),

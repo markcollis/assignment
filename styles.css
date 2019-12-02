@@ -124,8 +124,6 @@ footer a {
 /* styles for main content */
 .main {
   padding: 0 0.5em 0.3em 0.5em;
-  /* padding-left: 0.5em;
-  padding-right: 0.5em; */
 }
 /* styles for right panel */
 .right-panel {
@@ -199,6 +197,15 @@ footer a {
 .text-summary ul {
   margin-top: 0;
 }
+.franchise-view select, .cake-view select {
+  padding: 0.2em;
+  margin-left: 0.2em;
+  font-size: 90%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #99ca3c;
+}
+
 /* styles for Assignment 4 */
 .simple-draw {
   text-align: center;
