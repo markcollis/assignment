@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { CombinedData } from './CakeFranchiseData';
+import { LabelledCakeData } from './CakeFranchiseData';
 
 interface DatasetSelectorProps {
-  combinedData: CombinedData;
+  combinedData: LabelledCakeData;
   selectedDataset: string;
   triggerDataLoad: () => void;
   setSelectedDataset: (selection: string) => void;
@@ -21,7 +21,11 @@ const DatasetSelector: React.FC<DatasetSelectorProps> = ({
       const { name, cakeData } = data;
       return (
         <li key={name}>
-          <button type="button" onClick={(): void => setSelectedDataset(name)}>
+          <button
+            type="button"
+            onClick={(): void => setSelectedDataset(name)}
+            className={(selectedDataset === name) ? 'active' : ''}
+          >
             {`${name} (${cakeData.length} items)`}
           </button>
         </li>
@@ -30,14 +34,13 @@ const DatasetSelector: React.FC<DatasetSelectorProps> = ({
 
   return (
     <div className="dataset-selector">
-      <p>Data summary:</p>
+      <p>Select one of the following data sets:</p>
       <ul>
         {dataSummary}
       </ul>
       <button type="button" onClick={(): void => triggerDataLoad()}>
-        Reload
+        Reload data
       </button>
-      <p>{`Currently viewing: ${selectedDataset}`}</p>
     </div>
   );
 };

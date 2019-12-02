@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import DatasetSelector from './DatasetSelector';
+import ThemeSelector from './ThemeSelector';
+import DataViewer from './DataViewer';
 
 export type CakeData = Array<{
     date: string; // "%Y-%m-%d" https://github.com/d3/d3-time-format#locale_format
@@ -24,7 +26,7 @@ export type CakeData = Array<{
     cake6Name: string;
 }>
 
-export type CombinedData = Array<{
+export type LabelledCakeData = Array<{
   name: string;
   cakeData: CakeData;
 }>
@@ -32,9 +34,13 @@ export type CombinedData = Array<{
 // The CakeFranchiseData component is the top level component for Assignment 3
 const CakeFranchiseData: React.FC = () => {
   // keep track of data and currently selected views with state
-  const [combinedData, setCombinedData] = React.useState<CombinedData>([]);
+  const [combinedData, setCombinedData] = React.useState<LabelledCakeData>([]);
   const [dataLoadCount, setDataLoadCount] = React.useState(0);
   const [selectedDataset, setSelectedDataset] = React.useState<string>(null);
+  const [selectedTheme, setSelectedTheme] = React.useState(0);
+
+  // expand as required while building appropriate views in DataViewer
+  const THEMES = ['Summary', 'Shop performance', 'Cake performance'];
 
   // load data from ./data/, can be triggered by incrementing dataLoadCount
   React.useEffect(() => {
@@ -43,13 +49,14 @@ const CakeFranchiseData: React.FC = () => {
       fetch(`./data/data${n}.json`)
         .then(response => response.json())
         .then((jsonData) => {
-          setCombinedData((oldData): CombinedData => {
+          setCombinedData((oldData): LabelledCakeData => {
             const name = `data${n}`;
             const filteredOldData = oldData.filter(el => el.name !== name);
             return [...filteredOldData, { name, cakeData: jsonData }];
           });
         })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.log('Error loading data:', err);
         });
     };
@@ -57,35 +64,30 @@ const CakeFranchiseData: React.FC = () => {
       getFileData(i);
     }
   }, [dataLoadCount]);
-  console.log('combinedData', combinedData);
-  console.log('dataLoadCount', dataLoadCount);
 
+  const selectedLabelledData = combinedData.find(dataset => dataset.name === selectedDataset);
+  const selectedData = (selectedLabelledData) ? selectedLabelledData.cakeData : [];
   const triggerDataLoad = (): void => setDataLoadCount(dataLoadCount + 1);
 
-  const dataSummary = combinedData
-    .sort((a, b) => ((a.name > b.name) ? 1 : -1))
-    .map((data) => {
-      const { name, cakeData } = data;
-      return <li key={name}>{`${name} (${cakeData.length} items)`}</li>;
-    });
   return (
     <div className="cake-franchise-data">
-      <h3>Cake shop data analysis</h3>
-      <DatasetSelector
-        combinedData={combinedData}
-        selectedDataset={selectedDataset}
-        triggerDataLoad={triggerDataLoad}
-        setSelectedDataset={setSelectedDataset}
+      <div className="selectors">
+        <DatasetSelector
+          combinedData={combinedData}
+          selectedDataset={selectedDataset}
+          triggerDataLoad={triggerDataLoad}
+          setSelectedDataset={setSelectedDataset}
+        />
+        <ThemeSelector
+          themes={THEMES}
+          selectedTheme={selectedTheme}
+          setSelectedTheme={setSelectedTheme}
+        />
+      </div>
+      <DataViewer
+        selectedData={selectedData}
+        selectedTheme={selectedTheme}
       />
-      <p>CakeFranchiseData component</p>
-      <p>Data summary:</p>
-      <ul>
-        {dataSummary}
-      </ul>
-      <button type="button" onClick={(): void => setDataLoadCount(dataLoadCount + 1)}>
-        Reload
-      </button>
-      <p>{`Currently viewing: ${selectedDataset}`}</p>
     </div>
   );
 };

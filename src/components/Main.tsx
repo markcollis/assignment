@@ -9,7 +9,7 @@ import SimpleDraw from './SimpleDraw';
 const Main: React.FC<{ selectedAssignment: assignmentNumber }> = ({ selectedAssignment }) => {
   switch (selectedAssignment) {
     case 1:
-      return <p>Here is the layout</p>;
+      return <p>Here is the layout.</p>;
     case 2:
       return <LinkedInputs />;
     case 3:

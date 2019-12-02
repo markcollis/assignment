@@ -38,7 +38,7 @@ const RightPanel: React.FC<{ selectedAssignment: assignmentNumber }> = ({ select
           <li>to determine which cake will be replaced with a new one</li>
           <li>to hire or fire employees</li>
         </ul>
-        <p>Bonus: React immediately to any changes in the input data files.</p>
+        <p>Bonus: React to changes in the input data files.</p>
       </>
     ),
     (
@@ -77,8 +77,9 @@ const RightPanel: React.FC<{ selectedAssignment: assignmentNumber }> = ({ select
     (
       <>
         <p>
-          to do (need to investigate best visualisation library and think about how best to
-          slice and dice the data)
+          The sample data has been imported and a data set can be selected. The first
+          visualisation (an overall summary) has been created. Additional visualisations
+          are still to be done.
         </p>
       </>
     ),

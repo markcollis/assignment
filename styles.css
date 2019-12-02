@@ -157,7 +157,48 @@ footer a {
   margin: 0.5em;
 }
 /* styles for Assignment 3 */
-
+.selectors {
+  display: flex;
+  justify-content: space-around;
+}
+.dataset-selector, .theme-selector {
+  padding: 0.5em;
+}
+.dataset-selector p, .theme-selector p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.dataset-selector ul, .theme-selector ul {
+  padding-left: 0.5em;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.dataset-selector li button, .theme-selector li button {
+  background: none;
+  border: none;
+  font-size: 100%;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #99ca3c;
+  margin: 0 auto;
+  outline-color: transparent;
+  padding: 0;
+}
+.dataset-selector li button.active, .theme-selector li button.active {
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+}
+.data-viewer {
+  padding: 0.5em;
+}
+.text-summary p, .summary-chart p {
+  margin-bottom: 0;
+}
+.text-summary ul {
+  margin-top: 0;
+}
 /* styles for Assignment 4 */
 .simple-draw {
   text-align: center;
